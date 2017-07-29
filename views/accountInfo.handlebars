@@ -1,0 +1,43 @@
+<head>
+  <title>Account Info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link href="../public/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/members">Menu</a>
+      <a class="navbar-brand" href="/carSignup">Sign Up Car</a>
+      <a class="navbar-brand" href="/post">Post a Ride</a>
+      <a class="navbar-brand" href="/search">Find A Ride</a>
+    </div>
+  </div>
+</nav>
+  <div class="container">
+    <div class="row">
+      {{#each users}}
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Account Info:</h1>
+        <div>
+          <h3><b>Name: </b> {{this.name}}</h3>
+          <h3><b>Age: </b> {{this.age}}</h3>
+          <h3><b>Gender: </b> {{this.gender}}</h3>
+          <h3><b>Email: </b> {{this.email}}</h3>
+          <h3><b>RUID: </b> {{this.ruid}}</h3>
+          <h3><b>Vehicle Info: </b> {{this.carYear}} {{this.carColor}} {{this.carModel}}</h3>
+        </div>
+      {{/each}}
+      <br>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/accountInfo.js"></script>
+
+</body>

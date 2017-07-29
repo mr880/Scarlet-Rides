@@ -48,7 +48,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/accountInfo", isAuthenticated, function(req,res){
+    db.User.findAll({
 
+    }).then(function(data){
+      res.render("accountInfo", {users: data});
+    });
+
+  });
 
 
 

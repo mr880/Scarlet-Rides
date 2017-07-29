@@ -3,21 +3,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="../public/stylesheets/style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" id="nav1">
+    <div class="container">
+      <p class="float-right"><a href="/login">Log in</a></p>
       <div class="navbar-header">
+        <h3 id="f0">SCARLET <img id="ruLogo" src="http://content.sportslogos.net/logos/33/817/full/6853_rutgers_scarlet_knights-alternate-2001.png" alt="leaf" style="width:35px;">IDES</h3>
+
+      </div>
+
+    </div>
+  </nav>
+  <nav class="navbar navbar-default" id="nav1">
+    <div class="container">
+      <div class="navbar-header">
+        <br><br><br><br><br>
+        <h1 id=f1>Get where you need to go</h1>
+        <h1 id=f2>Reduce Emissions  <img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:28px;">
+</h2>
+          <br>
+
       </div>
     </div>
   </nav>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
+      <div class="col-md-3" id="signup-form">
+
+        <form class="signup" >
+          <h2>Sign Up!</h2>
+          <div class="form-group">
+            <label for="InputName">Name</label>
+            <input type="name" class="form-control" id="name-input" placeholder="First/Last Name">
+          </div>
+          <div class="form-group">
+            <label for="InputAge">Age</label>
+            <input type="age" class="form-control" id="age-input" placeholder="eg. 20">
+          </div>
+          <div class="form-group">
+            <label for="InputGender">Gender</label>
+            <input type="gender" class="form-control" id="gender-input" placeholder="eg. male/female/other">
+          </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
@@ -37,10 +69,38 @@
           <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+
       </div>
     </div>
   </div>
+  <nav class="navbar navbar-default" id="nav1">
+    <div class="container">
+      <div class="navbar-header">
+        <br>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div row>
+          <div class="col-md-4">
+            <img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:100px;">
+            <h4>A Clean Future</h4>
+            <p>Our mission is to help you get to where you're going and reducing carbon emissions all at once!</p>
+          </div>
+          <div class="col-md-4">
+            <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/6020-200.png" alt="handshake" style="width:100px;">
+            <h4>Build Stronger Cummunity</h4>
+            <p>We feel that the kindness of a stranger can also be the start of a lasting friendship with your fellow students!</p>
+          </div>
+        <div row>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </nav>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/signup.js"></script>
