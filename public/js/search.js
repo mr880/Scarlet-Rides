@@ -3,14 +3,16 @@ $(document).ready(function() {
   var pickRide = $("form.pickRide");
   var chosenId = $("input#chosen");
 
+  chosenId = chosenId.value;
 
   pickRide.on("submit", function(event) {
-    console.log(chosenId.value);
+
     event.preventDefault();
     var makeTrue = {
       chosen: true,
-      Postid: chosenId.value
+      Postid: chosenId
     };
+    console.log(makeTrue.Postid);
     updateChosen(makeTrue);
   });
 
