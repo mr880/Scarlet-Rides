@@ -20,16 +20,17 @@
 </nav>
   <div class="container">
     <div class="row">
-      {{#each users}}
+
       <div class="col-md-6 col-md-offset-3">
         <h1>Account Info:</h1>
+        {{#each users}}
         <div>
-          <h3><b>Name: </b> {{this.name}}</h3>
-          <h3><b>Age: </b> {{this.age}}</h3>
-          <h3><b>Gender: </b> {{this.gender}}</h3>
-          <h3><b>Email: </b> {{this.email}}</h3>
-          <h3><b>RUID: </b> {{this.ruid}}</h3>
-          <h3><b>Vehicle Info: </b> {{this.carYear}} {{this.carColor}} {{this.carModel}}</h3>
+          <h3 class="fonthere">Name: </b> {{this.first}} {{this.last}}</h3>
+          <h3 class="fonthere">Age: </b> {{this.age}}</h3>
+          <h3 class="fonthere">Gender: </b> {{this.gender}}</h3>
+          <h3 class="fonthere">Email: </b> {{this.email}}</h3>
+          <h3 class="fonthere">RUID: </b> {{this.ruid}}</h3>
+          <h3 class="fonthere">Vehicle Info: </b> {{this.carYear}} {{this.carColor}} {{this.carModel}}</h3>
         </div>
       {{/each}}
       <br>

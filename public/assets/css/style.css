@@ -25,9 +25,9 @@ body {
 	margin-bottom: 60px;
 }
 
-#signup-form{
-
-
+#signup-form {
+    background-color: #f8f8f8;
+    margin: 36px;
 }
 
 #nav1{
@@ -48,14 +48,14 @@ body {
 #f1{
   font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
   position: relative;
-  left: 140px;
+  left: 0px;
   font-weight: 100 !important;
 }
 
 #f2{
   font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
   position: relative;
-  left: 140px;
+  left: 0px;
   font-weight: 120 !important;
 }
 

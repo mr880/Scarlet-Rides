@@ -21,7 +21,8 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
-      name: req.body.name,
+      first: req.body.first,
+      last: req.body.last,
       age: req.body.age,
       gender: req.body.gender,
       email: req.body.email,
