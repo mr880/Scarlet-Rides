@@ -9,10 +9,19 @@ html{
 }
 body {
 	background-image: url("../images/car.jpg");
+	background-size: contain;
+	background-position: fixed;
+
+
+	margin-bottom: 60px;
+}
+
+.logBody{
+  background-image: url("../images/car.jpg");
 	background-size: cover;
 	background-position: fixed;
-	font-family: 'Josefin Slab', serif;
-	color: #003b46;
+
+
 	margin-bottom: 60px;
 }
 
