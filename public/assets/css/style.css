@@ -38,7 +38,8 @@ body {
 
 #navBottom{
   border-bottom: 0px;
-  margin-bottom:0px;
+  margin-bottom: 0px;
+  padding-bottom: 10%;
 }
 #f0{
   font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
@@ -97,4 +98,26 @@ hr{
   color: black;
   position: fixed;
   top: 24px;
+}
+
+#map{
+  position: relative;
+  left: 800%;
+  margin: 50px;
+}
+
+.map-text{
+ position: absolute;
+ left:25%;
+ width: 300px;
+ margin: 50px;
+}
+
+.campuses{
+  position: absolute;
+  margin: 18%;
+}
+
+.campus-title{
+  top: -27px;
 }
