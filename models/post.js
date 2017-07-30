@@ -19,9 +19,30 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     chosen: {
-      type:DataTypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    first: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    last: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    carSeats: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    confirm: {
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     }
+
 
   });
 

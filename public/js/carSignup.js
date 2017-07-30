@@ -35,7 +35,7 @@ $(document).ready(function() {
       url: "/signup/:id",
       data: carInfo
     }).done(function(data){
-      window.location.href = "/members";
+      window.location.href = "/post";
     });
   }
 

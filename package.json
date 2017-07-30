@@ -1,6 +1,6 @@
 {
-  "name": "1-Passport-Example",
-  "version": "1.0.0",
+  "name": "startbootstrap-simple-sidebar",
+  "version": "3.3.7",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,8 +8,11 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Start Bootstrap",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
@@ -22,5 +25,11 @@
     "passport-local": "^1.0.0",
     "mysql2": "^1.3.5",
     "sequelize": "^4.3.0"
+  },
+  "title": "Simple Sidebar",
+  "homepage": "http://startbootstrap.com/template-overviews/simple-sidebar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlackrockDigital/startbootstrap-simple-sidebar.git"
   }
 }

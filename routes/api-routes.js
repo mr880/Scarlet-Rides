@@ -27,7 +27,8 @@ module.exports = function(app) {
       gender: req.body.gender,
       email: req.body.email,
       password: req.body.password,
-      ruid: req.body.ruid
+      ruid: req.body.ruid,
+      phone: req.body.phone
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
@@ -42,7 +43,12 @@ module.exports = function(app) {
       from: req.body.from,
       to: req.body.to,
       notes: req.body.notes,
-      time: req.body.time
+      time: req.body.time,
+      email: req.user.email,
+      first: req.user.first,
+      last: req.user.last,
+      carSeats: req.user.carSeats,
+      phone: req.user.phone
     }).then(function() {
       res.redirect("/api/user-data");
     }).catch(function(err) {
@@ -55,7 +61,6 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/");
   });
-
 
 
 
@@ -101,14 +106,28 @@ module.exports = function(app) {
   });
 
   app.put("/search:id", function(req, res) {
-  // If we are given a customer, create the customer and give them this devoured burger
-    //console.log("NEED!");
+
     console.log(req);
     db.Post.update({
       chosen: req.body.chosen
     }, {
       where: {
-        id: req.body.Postid
+        id: req.body.id
+      }
+    })
+    .then(function(data) {
+      res.json("Success");
+    });
+  });
+
+  app.put("/confirmation/:id", function(req, res) {
+
+    console.log(req);
+    db.Post.update({
+      confirm: req.body.confirm
+    }, {
+      where: {
+        id: req.body.id
       }
     })
     .then(function(data) {

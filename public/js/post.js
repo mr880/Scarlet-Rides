@@ -15,7 +15,7 @@ $(document).ready(function() {
       from: fromInput.val(),
       to: toInput.val(),
       notes: notesInput.val().trim(),
-      time: timeInput.val().trim(),
+      time: timeInput.val().trim()
     };
 
     if (!rideData.from || !rideData.to || !rideData.time) {
@@ -36,11 +36,11 @@ $(document).ready(function() {
       from: from,
       to: to,
       notes: notes,
-      time: time,
-      
+      time: time
+
     }).then(function(data) {
       console.log(data);
-      window.location.href = "/members";
+      window.location.href = "/search";
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }
