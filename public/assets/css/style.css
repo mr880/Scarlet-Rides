@@ -13,13 +13,14 @@ body {
 	background-position: static;
   position: static;
 	margin-bottom: 60px;
+  background-repeat: no-repeat;
 }
 
 .logBody{
-  background-image: url("../images/car.jpg");
+  background-image: url("../images/college.jpg");
 	background-size: cover;
 	background-position: fixed;
-
+  background-repeat: no-repeat;
 
 	margin-bottom: 60px;
 }
@@ -28,7 +29,7 @@ body {
   background-image: url("../images/campus.jpg");
 	background-size: cover;
 	background-position: fixed;
-
+  background-repeat: no-repeat;
 
 	margin-bottom: 60px;
 }
@@ -134,7 +135,7 @@ hr{
 }
 
 .ride-form{
-  background-color: #f8f8f8;
+  background-color: white;
   margin:20px;
   padding:20px;
   position: relative;
@@ -202,25 +203,67 @@ hr{
 }
 
 .ridesFixed{
-  background-size: contain;
+  background-size: cover;
   background-color: #f8f8f8;
-  background-image: url("../images/grey.png");
+  background-image: url("../images/livi.jpg");
+  background-repeat: no-repeat;
+}
+
+.ridesFixed2{
+  background-size: cover;
+  background-color: #f8f8f8;
+  background-image: url("../images/livi2.jpg");
+  background-repeat: no-repeat;
+}
+
+.ridesFixed3{
+  background-size: cover;
+  background-color: #f8f8f8;
+  background-image: url("../images/livi3.jpg");
+  background-repeat: no-repeat;
 }
 
 #align-center{
   position: absolute;
   background-color: white;
-  left: 10%;
+  left: 9%;
 }
 
 #menuOptions{
   position: absolute;
   background-color: white;
-  left: 19%;
+  left: 8%;
   top: 23%;
 }
 
 .absolute{
   position:absolute;
 
+}
+
+#accountFoot{
+  background-color: #cc0033;
+  color: #fff;
+  width: 100%;
+}
+
+#postBackground{
+  background-size: cover;
+  background-color: #f8f8f8;
+  background-repeat: repeat;
+    background-image: url("../images/grey.jpg");
+}
+
+.shift{
+  position: absolute;
+    left: 25%;
+}
+
+#ridesAvailable{
+  left: 3%;
+  position: relative;
+}
+
+#white{
+  color:white;
 }

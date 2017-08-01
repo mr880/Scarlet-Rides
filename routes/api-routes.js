@@ -32,6 +32,7 @@ module.exports = function(app) {
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
+      console.log(err);
       res.status(422).json(err.errors[0].message);
     });
   });
@@ -81,8 +82,7 @@ module.exports = function(app) {
         },
         include:[db.Post]
       }).then(function(data){
-        // console.log("HEEEEEEEEEEERE");
-        // console.log(data);
+
         res.render("search", data );
       });
     }
@@ -120,6 +120,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/confirmation", function(req, res) {
+
+    console.log(req);
+    db.Post.findAll({
+      confirm: req.body.confirm
+    }, {
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(function(data) {
+      res.json("Success");
+    });
+
+  });
+
   app.put("/confirmation/:id", function(req, res) {
 
     console.log(req);
@@ -133,12 +149,12 @@ module.exports = function(app) {
     .then(function(data) {
       res.json("Success");
     });
+
   });
 
   app.put("/signup/:id", function(req, res) {
 
     db.User.update({
-
       carYear: req.body.carYear,
       carModel: req.body.carModel,
       carColor: req.body.carColor,
@@ -149,6 +165,21 @@ module.exports = function(app) {
       }
     }).then(function(data) {
         res.json("Success");
+    });
+  });
+
+  app.get("/getPostInfo/:id", function(req, res){
+
+    console.log(req);
+
+    db.Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
+
+    }).then(function(data){
+      res.render("confirmation", data);
     });
   });
 };

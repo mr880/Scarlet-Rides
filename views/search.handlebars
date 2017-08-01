@@ -6,15 +6,15 @@
   <link href="../public/stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body class="ridesFixed">
+<body id="postBackground">
   <nav class="navbar navbar-default navbar-fixed-top" id="nav1">
     <div class="container">
-      <p class="float-right"><a id="login" href="/logout">Log out</a></p>
+      <!-- <p class="float-right"><a id="login" href="/logout">Log out</a></p> -->
       <div class="navbar-header">
         <h3 id="f0">SCARLET <img id="ruLogo" src="http://content.sportslogos.net/logos/33/817/full/6853_rutgers_scarlet_knights-alternate-2001.png" alt="leaf" style="width:35px;">IDES</h3>
         <a class="navbar-brand" href="/members">Menu</a>
         <a class="navbar-brand" href="/accountInfo">Account</a>
-        <a class="navbar-brand" href="/post">Post a Ride</a>
+        <a class="navbar-brand" href="/logout">Log out</a>
       </div>
 
     </div>
@@ -23,11 +23,10 @@
 
   <div class="container absolute">
     <div class="row">
-      <div class="col-md-6">
-        <h2 class="fontHere" id="title-left">Rides Available</h2>
+      <div class="col-md-6 shift">
+        <h2 class="fontHere" id="ridesAvailable">Rides Available</h2>
         {{#each posts}}
           {{#unless this.chosen}}
-
 
               <div class="ride-form">
                 <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
@@ -35,6 +34,7 @@
                 <p class="fontHere"><b>Posted: </b>{{this.createdAt}}</p>
                 <p class="fontHere"><b>Notes: </b> {{this.notes}}</p>
                 <p class="fontHere"><b>Time: </b> {{this.time}}</p>
+                <p class="fontHere"><b>ID: </b> {{this.id}}</p>
                 <form class="pickRide">
                   <input input type="hidden" type="text" id="chosen" name="post_id" value={{this.id}}>
                   <button type="submit" class="btn btn-default fontHere">Choose</button>
@@ -45,9 +45,9 @@
         {{/each}}
 
       </div>
-      <div class="col-md-6 ">
+      <div class="col-md-6">
 
-        {{#each posts}}
+        <!-- {{#each posts}}
           {{#if this.chosen}}
 
 
@@ -61,6 +61,12 @@
 
                 <form class="confirm-form">
                   <input input type="hidden" type="text" id="confirmbtn" name="post_id" value={{this.id}}>
+                  <input input type="hidden" type="text" id="conFirst" name="post_id" value={{this.first}}>
+                  <input input type="hidden" type="text" id="conLast" name="post_id" value={{this.last}}>
+                  <input input type="hidden" type="text" id="conFrom" name="post_id" value={{this.from}}>
+                  <input input type="hidden" type="text" id="conTo" name="post_id" value={{this.to}}>
+                  <input input type="hidden" type="text" id="conNotes" name="post_id" value={{this.notes}}>
+                  <input input type="hidden" type="text" id="conTime" name="post_id" value={{this.time}}>
                   <button type="submit" class="btn btn-default fontHere">Confirm</button>
                 </form>
 
@@ -72,7 +78,7 @@
               </div>
 
           {{/if}}
-        {{/each}}
+        {{/each}} -->
 
       </div>
     </div>

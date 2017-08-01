@@ -17,30 +17,35 @@
         <a class="navbar-brand" href="/post">Post a Ride</a>
         <a class="navbar-brand" href="/logout">Logout</a>
       </div>
-
     </div>
   </nav>
   <br><br><br><br><br><br>
   <div class="container">
-    <h1 class= "fontHere">Confirmation</h1>
+
+    <h1 class= "fontHere" id="white">Confirmation</h1>
     <div row>
       <div col-md-6>
-
         <div class="container col-md-6" id="driver-info">
           <h3 class="fontHere">Driver Info</h3>
           <br>
-          <p class="fontHere">Name: </p>
-          <p class="fontHere">Age: </p>
-          <p class="fontHere">Phone Number: </p>
-          <p class="fontHere">Email: </p>
-          <p class="fontHere">Vehicle: </p>
-          <p class="fontHere">Notes: </p>
+
+
+          <p class="fontHere"><b>Name:</b> {{User.first}} {{User.last}}</p>
+          <p class="fontHere"><b>Age:</b>  {{User.age}} </p>
+          <p class="fontHere"><b>Gender:</b>  {{User.gender}} </p>
+          <p class="fontHere"><b>Phone Number:</b> {{User.phone}}</p>
+          <p class="fontHere"><b>Email:</b> {{User.email}}</p>
+          <p class="fontHere"><b>Vehicle:</b> {{User.carYear}} '{{User.carColor}}' {{User.carModel}}</p>
+          <p class="fontHere"><b>Number of seats:</b> {{User.carSeats}} </p>
+          <p class="fontHere"><b>RUID:</b> {{User.ruid}} </p>
+          <br>
+          <h4 class="fontHere">Give {{User.first}} a text, call, or email and secure your ride!</h4>
+
+
         </div>
       </div>
     </div>
   </div>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/confirmation.js"></script>
 

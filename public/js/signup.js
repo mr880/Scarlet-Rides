@@ -30,13 +30,14 @@ $(document).ready(function() {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.first, userData.last, userData.age, userData.gender, userData.email, userData.password, userData.ruid, userData.phone);
-    emailInput.val("");
-    passwordInput.val("");
-    ruidInput.val("");
-    firstInput.val("");
-    lastInput.val("");
-    ageInput.val("");
-    phoneInput.val("");
+    // emailInput.val("");
+    // passwordInput.val("");
+    // ruidInput.val("");
+    // firstInput.val("");
+    // lastInput.val("");
+    // ageInput.val("");
+    // genderInput.val("");
+    // phoneInput.val("");
   });
 
   // Does a post to the signup route. If succesful, we are redirected to the members page

@@ -5,6 +5,7 @@ $(document).ready(function() {
   var typeInput = $("input#type-input");
   var colorInput = $("input#color-input");
   var seatsInput = $("input#seats-input");
+  
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {

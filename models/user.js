@@ -41,6 +41,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [9]
       }
     },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate:{
+        len: [10]
+      }
+    },
     carYear: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -60,15 +68,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       validate:{
-        len:[1]
-      }
-    },
-    phone: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: true,
-      validate:{
-        len: [10]
+        len: [1]
       }
     }
 
@@ -80,6 +80,9 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models){
     User.hasMany(models.Post, {
+      onDelete: "cascade"
+    });
+    User.hasOne(models.Account, {
       onDelete: "cascade"
     });
   }

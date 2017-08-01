@@ -11,6 +11,7 @@ $(document).ready(function() {
   // When the signup button is clicked, we validate the email and password are not blank
   postForm.on("submit", function(event) {
     event.preventDefault();
+    
     var rideData = {
       from: fromInput.val(),
       to: toInput.val(),
