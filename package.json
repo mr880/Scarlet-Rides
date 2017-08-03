@@ -21,10 +21,11 @@
     "express-session": "^1.14.2",
     "method-override": "^2.3.9",
     "mysql": "^2.12.0",
+    "mysql2": "^1.3.5",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "mysql2": "^1.3.5",
-    "sequelize": "^4.3.0"
+    "sequelize": "^4.3.0",
+    "twilio": "^3.6.1"
   },
   "title": "Simple Sidebar",
   "homepage": "http://startbootstrap.com/template-overviews/simple-sidebar",

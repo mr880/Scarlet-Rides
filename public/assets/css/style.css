@@ -251,7 +251,7 @@ hr{
   background-size: cover;
   background-color: #f8f8f8;
   background-repeat: repeat;
-    background-image: url("../images/grey.jpg");
+  background-image: url("../images/grey.jpg");
 }
 
 .shift{
@@ -266,4 +266,18 @@ hr{
 
 #white{
   color:white;
+}
+
+#seatInput{
+  display: block;
+    width: 25%;
+    height: 25px;
+    padding: 7px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
 }

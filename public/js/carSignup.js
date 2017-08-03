@@ -5,7 +5,7 @@ $(document).ready(function() {
   var typeInput = $("input#type-input");
   var colorInput = $("input#color-input");
   var seatsInput = $("input#seats-input");
-  
+
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
@@ -26,6 +26,8 @@ $(document).ready(function() {
     typeInput.val("");
     colorInput.val("");
     seatsInput.val("");
+    console.log("YES");
+    updateCarSeats(userData);
   });
 
   // Does a post to the signup route. If succesful, we are redirected to the members page
@@ -36,10 +38,19 @@ $(document).ready(function() {
       url: "/signup/:id",
       data: carInfo
     }).done(function(data){
-      window.location.href = "/post";
+
     });
   }
 
+  function updateCarSeats(carInfo){
+    $.ajax({
+      method: "PUT",
+      url: "/signup/",
+      data: carInfo
+    }).done(function(data){
+      window.location.href = "/search";
+    });
+  }
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);

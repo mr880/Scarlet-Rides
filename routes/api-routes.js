@@ -1,8 +1,10 @@
-// Requiring our models and passport as we've configured it
+
 var express = require("express");
 var db = require("../models");
 var passport = require("../config/passport");
 var router = express.Router();
+var twilio = require('twilio');
+var client = twilio('AC1a4c410b5f8ec1f1e3d35b29c58f7119', 'e1d1eb3bab340be569abc8864a1c9731');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -109,7 +111,7 @@ module.exports = function(app) {
 
     console.log(req);
     db.Post.update({
-      chosen: req.body.chosen
+      carSeats: req.body.carSeats
     }, {
       where: {
         id: req.body.id
@@ -182,4 +184,41 @@ module.exports = function(app) {
       res.render("confirmation", data);
     });
   });
+
+  app.put("/signup/", function(req, res) {
+    console.log("YESTERDAYS PEOPLE");
+    db.Post.update({
+
+      carSeats: req.body.carSeats
+    }, {
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(data) {
+        res.json("Success");
+    });
+  });
+
+
+
+  app.get("/confirmation_2", function(req, res){
+    console.log("phoneeee");
+    console.log(req);
+
+    client.messages.create({
+      to: '+1' + req.user.phone,
+      from: '+12013544393',
+      body: 'You have a rider, ' + req.user.first + ' ' + req.user.last + ' for your ride created on ' + req.user.createdAt
+    }, function(err, data){
+      if(err){
+        console.log(err);
+      }
+      console.log(data);
+
+
+    }).then(function(data){
+      res.render("confirmation", data);
+    });
+  });
+
 };

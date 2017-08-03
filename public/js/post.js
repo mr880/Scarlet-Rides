@@ -5,18 +5,19 @@ $(document).ready(function() {
   var toInput = $("select#endCampus");
   var notesInput = $("input#notes-input");
   var timeInput = $("input#time-input");
+  var time = $("select#timeInput");
 
 
 
   // When the signup button is clicked, we validate the email and password are not blank
   postForm.on("submit", function(event) {
     event.preventDefault();
-    
+
     var rideData = {
       from: fromInput.val(),
       to: toInput.val(),
       notes: notesInput.val().trim(),
-      time: timeInput.val().trim()
+      time: time.val().trim()
     };
 
     if (!rideData.from || !rideData.to || !rideData.time) {
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
     }).then(function(data) {
       console.log(data);
-      window.location.href = "/search";
+      window.location.href = "/carSignup";
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }

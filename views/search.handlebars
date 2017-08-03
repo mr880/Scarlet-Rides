@@ -26,29 +26,40 @@
       <div class="col-md-6 shift">
         <h2 class="fontHere" id="ridesAvailable">Rides Available</h2>
         {{#each posts}}
-          {{#unless this.chosen}}
+          {{#if this.carSeats}}
 
               <div class="ride-form">
                 <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
                 <p class="fontHere"><b>From: </b> {{this.from}} <b>To: </b> {{this.to}}</p>
-                <p class="fontHere"><b>Posted: </b>{{this.createdAt}}</p>
-                <p class="fontHere"><b>Notes: </b> {{this.notes}}</p>
-                <p class="fontHere"><b>Time: </b> {{this.time}}</p>
-                <p class="fontHere"><b>ID: </b> {{this.id}}</p>
-                <form class="pickRide">
-                  <input input type="hidden" type="text" id="chosen" name="post_id" value={{this.id}}>
-                  <button type="submit" class="btn btn-default fontHere">Choose</button>
+                <p class="fontHere"><b>Posted on: </b>{{this.createdAt}}</p>
+                <p class="fontHere"><b></b> {{this.notes}}</p>
+                <p class="fontHere"><b>Meet at: </b> {{this.time}}</p>
+                <!-- <p class="fontHere"><b>ID: </b> {{this.id}}</p> -->
+                <p class="fontHere"><b>Seats Available: </b> {{this.carSeats}}</p>
+                <br>
+                <div class="form-group">
+                  <label for="startCampus"><b>Pick number of seats</b></label>
+                  <select class="form-control" id="seatInput">
+      					    <option value="1">1 (One)</option>
+      					    <option value="2">2 (Two)</option>
+      					    <option value="3">3 (Three)</option>
+                    <option value="4">4 (Four)</option>
+        					</select>
+                </div>
+
+                <form data-id={{this.id}} data-seats={{this.carSeats}} class="pickRide">
+                  <input input type="hidden" type="text" id="chosen_{{this.id}}" name="post_id" value={{this.id}}>
+                  <button type="submit" data-trigger="save" class="btn btn-default fontHere">Choose</button>
                 </form>
               </div>
 
-          {{/unless}}
+          {{/if}}
         {{/each}}
 
       </div>
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
 
-        <!-- {{#each posts}}
-          {{#if this.chosen}}
+
 
 
               <div class="selected-form">
@@ -77,10 +88,8 @@
                 <p class="fontHere"><b>Email: </b> {{this.email}}</p>
               </div>
 
-          {{/if}}
-        {{/each}} -->
 
-      </div>
+      </div> -->
     </div>
   </div>
 

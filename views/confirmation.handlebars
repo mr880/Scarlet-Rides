@@ -1,5 +1,5 @@
 <head>
-  <title>Car Signup Page</title>
+  <title>Confirmation Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
@@ -14,7 +14,7 @@
         <h3 id="f0">SCARLET <img id="ruLogo" src="http://content.sportslogos.net/logos/33/817/full/6853_rutgers_scarlet_knights-alternate-2001.png" alt="leaf" style="width:35px;">IDES</h3>
         <a class="navbar-brand" href="/members">Menu</a>
         <a class="navbar-brand" href="/accountInfo">Account</a>
-        <a class="navbar-brand" href="/post">Post a Ride</a>
+        <!-- <a class="navbar-brand" href="/post">Post a Ride</a> -->
         <a class="navbar-brand" href="/logout">Logout</a>
       </div>
     </div>
@@ -36,13 +36,18 @@
           <p class="fontHere"><b>Phone Number:</b> {{User.phone}}</p>
           <p class="fontHere"><b>Email:</b> {{User.email}}</p>
           <p class="fontHere"><b>Vehicle:</b> {{User.carYear}} '{{User.carColor}}' {{User.carModel}}</p>
-          <p class="fontHere"><b>Number of seats:</b> {{User.carSeats}} </p>
+          <!-- <p class="fontHere"><b>Number of seats:</b> {{User.carSeats}} </p> -->
           <p class="fontHere"><b>RUID:</b> {{User.ruid}} </p>
           <br>
-          <h4 class="fontHere">Give {{User.first}} a text, call, or email and secure your ride!</h4>
+          <h3 class="fontHere">A text message was sent to {{User.first}} informing them of your confirmation!</h4>
 
+          <a class="btn btn-default" href="/search">Back to posts</a>
+          <p> </p>
+
+          <!-- <input type="submit" id="confirmer" value={{this.phone}} class="btn btn-default">Confirm</input> -->
 
         </div>
+
       </div>
     </div>
   </div>
