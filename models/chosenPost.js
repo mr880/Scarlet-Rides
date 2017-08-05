@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     chosenSeats: {
       type: DataTypes.INTEGER,
       allowNull: true
-    }
+    },
   });
 
 

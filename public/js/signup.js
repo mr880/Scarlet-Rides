@@ -7,7 +7,7 @@ $(document).ready(function() {
   var firstInput = $("input#first-input");
   var lastInput = $("input#last-input");
   var ageInput = $("input#age-input");
-  var genderInput = $("input#gender-input");
+  var genderInput = $("select#gender_1");
   var phoneInput = $("input#phone-input");
 
   // When the signup button is clicked, we validate the email and password are not blank

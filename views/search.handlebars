@@ -20,22 +20,48 @@
     </div>
   </nav>
   <br><br><br><br><br><br><br><br>
+  <h2 class="fontHere" id="ridesAvailable"><img id="ruLogo" src="http://content.sportslogos.net/logos/33/817/full/6853_rutgers_scarlet_knights-alternate-2001.png" alt="leaf" style="width:35px;">ides Available</h2>
+  <div class="container">
+    {{#each posts}}
+      {{#unless this.confirm}}
+    <div class="row" id="add_margin">
 
-  <div class="container absolute">
-    <div class="row">
-      <div class="col-md-6 shift">
-        <h2 class="fontHere" id="ridesAvailable">Rides Available</h2>
-        {{#each posts}}
-          {{#if this.carSeats}}
 
-              <div class="ride-form">
+
+
+            <div class="col-sm-12">
+
+              <div class="col-sm-4" id="donkey">
+
+                {{#if this.fromLivi}}
+
+                  <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.fromBusch}}
+                  <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.fromCook}}
+                  <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.fromCollege}}
+                  <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+              </div>
+
+              <div class="col-sm-4" id="color-white">
+
                 <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
-                <p class="fontHere"><b>From: </b> {{this.from}} <b>To: </b> {{this.to}}</p>
+                <p class="fontHere"><b>From: </b> {{this.from}} Campus <b>To: </b> {{this.to}} Campus</p>
                 <p class="fontHere"><b>Posted on: </b>{{this.createdAt}}</p>
                 <p class="fontHere"><b></b> {{this.notes}}</p>
                 <p class="fontHere"><b>Meet at: </b> {{this.time}}</p>
                 <!-- <p class="fontHere"><b>ID: </b> {{this.id}}</p> -->
                 <p class="fontHere"><b>Seats Available: </b> {{this.carSeats}}</p>
+                <p class="fontHere"><b>CO2 emmisions saved per rider: </b> {{this.emissions}}kg <img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:15px;"></p>
                 <br>
                 <div class="form-group">
                   <label for="startCampus"><b>Pick number of seats</b></label>
@@ -47,50 +73,42 @@
         					</select>
                 </div>
 
-                <form data-id={{this.id}} data-seats={{this.carSeats}} class="pickRide">
+                <form data-id={{this.id}} data-seats={{this.carSeats}} data-from={{this.from}} data-to{{this.to}} class="pickRide">
                   <input input type="hidden" type="text" id="chosen_{{this.id}}" name="post_id" value={{this.id}}>
-                  <button type="submit" data-trigger="save" class="btn btn-default fontHere">Choose</button>
+                  <button type="submit" data-trigger="save" class="btn btn-default fontHere" id="fixbuttons">Choose</button>
                 </form>
               </div>
 
-          {{/if}}
-        {{/each}}
+
+              <!-- <div class="col-sm-2" id="muel">
+
+              <img src="/assets/images/car.svg" alt="car" id="moveTo" style="width:80px;">
+              </div> -->
+              <div class="col-sm-4" id="ass">
+                {{#if this.toLivi}}
+                  <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.toBusch}}
+                  <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.toCook}}
+                  <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+                {{#if this.toCollege}}
+                  <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
+                  <p></p>
+                {{/if}}
+
+              </div>
 
       </div>
-      <!-- <div class="col-md-6">
 
-
-
-
-              <div class="selected-form">
-                <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
-
-                <form class="cancel-form">
-                  <input input type="hidden" type="text" id="cancelbtn" name="post_id" value={{this.id}}>
-                  <button type="submit" class="btn btn-default fontHere">Cancel</button>
-                </form>
-
-                <form class="confirm-form">
-                  <input input type="hidden" type="text" id="confirmbtn" name="post_id" value={{this.id}}>
-                  <input input type="hidden" type="text" id="conFirst" name="post_id" value={{this.first}}>
-                  <input input type="hidden" type="text" id="conLast" name="post_id" value={{this.last}}>
-                  <input input type="hidden" type="text" id="conFrom" name="post_id" value={{this.from}}>
-                  <input input type="hidden" type="text" id="conTo" name="post_id" value={{this.to}}>
-                  <input input type="hidden" type="text" id="conNotes" name="post_id" value={{this.notes}}>
-                  <input input type="hidden" type="text" id="conTime" name="post_id" value={{this.time}}>
-                  <button type="submit" class="btn btn-default fontHere">Confirm</button>
-                </form>
-
-                <p class="fontHere"><b>From: </b> {{this.from}} <b>To: </b> {{this.to}}</p>
-                <p class="fontHere"><b>Posted: </b>{{this.createdAt}}</p>
-                <p class="fontHere"><b>Notes: </b> {{this.notes}}</p>
-                <p class="fontHere"><b>Time: </b> {{this.time}}</p>
-                <p class="fontHere"><b>Email: </b> {{this.email}}</p>
-              </div>
-
-
-      </div> -->
     </div>
+    {{/unless}}
+  {{/each}}
   </div>
 
 

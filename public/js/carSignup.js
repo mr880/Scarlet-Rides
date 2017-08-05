@@ -3,7 +3,7 @@ $(document).ready(function() {
   var signUpForm = $("form.carSignup");
   var yearInput = $("input#year-input");
   var typeInput = $("input#type-input");
-  var colorInput = $("input#color-input");
+  var colorInput = $("select#color");
   var seatsInput = $("input#seats-input");
 
 
@@ -30,8 +30,7 @@ $(document).ready(function() {
     updateCarSeats(userData);
   });
 
-  // Does a post to the signup route. If succesful, we are redirected to the members page
-  // Otherwise we log any errors
+
   function updateInfo(carInfo) {
     $.ajax({
       method: "PUT",

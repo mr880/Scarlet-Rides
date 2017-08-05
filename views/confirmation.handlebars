@@ -24,13 +24,13 @@
 
     <h1 class= "fontHere" id="white">Confirmation</h1>
     <div row>
-      <div col-md-6>
+      <div class="col-md-10" id="bring-left">
         <div class="container col-md-6" id="driver-info">
-          <h3 class="fontHere">Driver Info</h3>
-          <br>
+          <!-- <h3 class="fontHere">Driver Info</h3>
+          <br> -->
 
-
-          <p class="fontHere"><b>Name:</b> {{User.first}} {{User.last}}</p>
+          <h3 class="fontHere"><img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:28px;">Congrats! You've secured a ride with {{User.first}} {{User.last}}</h3>
+          <!-- <p class="fontHere"><b>Name:</b> {{User.first}} {{User.last}}</p> -->
           <p class="fontHere"><b>Age:</b>  {{User.age}} </p>
           <p class="fontHere"><b>Gender:</b>  {{User.gender}} </p>
           <p class="fontHere"><b>Phone Number:</b> {{User.phone}}</p>
@@ -38,16 +38,29 @@
           <p class="fontHere"><b>Vehicle:</b> {{User.carYear}} '{{User.carColor}}' {{User.carModel}}</p>
           <!-- <p class="fontHere"><b>Number of seats:</b> {{User.carSeats}} </p> -->
           <p class="fontHere"><b>RUID:</b> {{User.ruid}} </p>
-          <br>
-          <h3 class="fontHere">A text message was sent to {{User.first}} informing them of your confirmation!</h4>
 
-          <a class="btn btn-default" href="/search">Back to posts</a>
-          <p> </p>
 
-          <!-- <input type="submit" id="confirmer" value={{this.phone}} class="btn btn-default">Confirm</input> -->
+          <h5 class="fontHere"><b>'Confirm' your ride to notify {{User.first}}!</h5>
+          <p></p>
+
 
         </div>
 
+
+      </div>
+    </div>
+    <div row>
+      <div class="col-md-10" id="bring-left_1">
+        <div class="container col-md-6">
+          <p></p>
+          <a class="btn btn-default" id ="conf_page" href="/search">Back to posts</a>
+          <p></p>
+          <form data-phone={{User.phone}} class="confirm_1">
+            <input input type="hidden" type="text" id="confirmer" value={{User.phone}} name="post_id">
+            <button type="submit" id ="conf_page_1" class="btn btn-default">Confirm</button>
+          </form>
+          <p></p>
+        </div>
       </div>
     </div>
   </div>

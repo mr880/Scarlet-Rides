@@ -6,6 +6,7 @@ $(document).ready(function() {
   var chosenId = $("input#chosen");
   var cancelId = $("input#cancelbtn");
   var seatChosen = $("select#seatInput");
+  // var emission = 0;
 
 
   pickRide.on("submit", function(event) {
@@ -13,26 +14,28 @@ $(document).ready(function() {
 
     var id = $(this).attr("data-id");
     var seats = $(this).attr("data-seats");
+    var confirm = false;
 
+    //depreciate value of seats upon user choice
     seatChosen = seatChosen.val().trim();
     seats = seats - seatChosen;
+    //switch boolean value for confirm to remove it from search
+    if (seats <= 0){
+      confirm = true;
+    }
 
     var makeTrue = {
       carSeats: seats,
-      chosen: true,
+      confirm: confirm,
       id: id
     };
 
     updateSeats(makeTrue);
-    // console.log("yes");
-    window.location.href = "/getPostInfo/" + makeTrue.id;
 
+    window.location.href = "/getPostInfo/" + makeTrue.id;
 
   });
 
-
-  // Does a post to the signup route. If succesful, we are redirected to the members page
-  // Otherwise we log any errors
   function updateSeats(toggle) {
     $.ajax({
       method: "PUT",
@@ -45,9 +48,9 @@ $(document).ready(function() {
     });
   }
 
-
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+
 });

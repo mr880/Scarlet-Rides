@@ -41,6 +41,42 @@ module.exports = function(sequelize, DataTypes) {
     confirm: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    emissions: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    fromLivi: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    fromBusch: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    fromCook: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    fromCollege: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    toLivi: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    toBusch: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    toCook: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    toCollege: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
 
 

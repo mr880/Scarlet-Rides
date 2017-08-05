@@ -51,7 +51,16 @@ module.exports = function(app) {
       first: req.user.first,
       last: req.user.last,
       carSeats: req.user.carSeats,
-      phone: req.user.phone
+      phone: req.user.phone,
+      emissions: req.body.emissions,
+      fromLivi: req.body.fromLivi,
+      fromBusch: req.body.fromBusch,
+      fromCook: req.body.fromCook,
+      fromCollege: req.body.fromCollege,
+      toLivi: req.body.toLivi,
+      toBusch: req.body.toBusch,
+      toCook: req.body.toCook,
+      toCollege: req.body.toCollege
     }).then(function() {
       res.redirect("/api/user-data");
     }).catch(function(err) {
@@ -96,6 +105,8 @@ module.exports = function(app) {
       res.json({});
     }
     else {
+      console.log("WOLF!");
+      console.log(req);
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -111,7 +122,8 @@ module.exports = function(app) {
 
     console.log(req);
     db.Post.update({
-      carSeats: req.body.carSeats
+      carSeats: req.body.carSeats,
+      confirm : req.body.confirm
     }, {
       where: {
         id: req.body.id
@@ -139,7 +151,7 @@ module.exports = function(app) {
   });
 
   app.put("/confirmation/:id", function(req, res) {
-
+    console.log("BLAHBLAHBLAH");
     console.log(req);
     db.Post.update({
       confirm: req.body.confirm
@@ -171,7 +183,7 @@ module.exports = function(app) {
   });
 
   app.get("/getPostInfo/:id", function(req, res){
-
+    console.log("BEER");
     console.log(req);
 
     db.Post.findOne({
@@ -185,8 +197,11 @@ module.exports = function(app) {
     });
   });
 
+  //update our car seats when we sign up a car each time
+
   app.put("/signup/", function(req, res) {
     console.log("YESTERDAYS PEOPLE");
+    console.log(req)
     db.Post.update({
 
       carSeats: req.body.carSeats
@@ -199,7 +214,19 @@ module.exports = function(app) {
     });
   });
 
-
+  app.put("/emissions/", function(req, res) {
+    console.log("EMISSIONSSSSSSSSSSSSSS!");
+    console.log(req);
+    db.User.update({
+      emissions: req.body.emission
+    }, {
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json("Success");
+    });
+  });
 
   app.get("/confirmation_2", function(req, res){
     console.log("phoneeee");
@@ -208,7 +235,8 @@ module.exports = function(app) {
     client.messages.create({
       to: '+1' + req.user.phone,
       from: '+12013544393',
-      body: 'You have a rider, ' + req.user.first + ' ' + req.user.last + ' for your ride created on ' + req.user.createdAt
+      body: 'Thank you ' + req.user.first + ' ' + req.user.last + ' for using Scarlet Rides! You have a confirmed rider for the ride created on ' + req.user.createdAt
+
     }, function(err, data){
       if(err){
         console.log(err);
