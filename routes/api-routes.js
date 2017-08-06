@@ -99,25 +99,30 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
-      console.log("WOLF!");
-      console.log(req);
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        name: req.user.name,
-        email: req.user.email,
-        id: req.user.id,
-        ruid: req.user.ruid
-      });
-    }
-  });
+/////////////////////////////////////////////
+  app.get('/api/user_data', function(req, res) {
+		if (!req.user) {
+			// The user is not logged in, send back an empty object
+			res.json({});
+		} else {
+			// Otherwise send back the user's email and id
+			// Sending back a password, even a hashed password, isn't a good idea
+			res.json({
+        first: req.user.first,
+        last: req.user.last,
+				email: req.user.email,
+				id: req.user.id,
+        age: req.user.age,
+        gender: req.user.gender,
+        ruid: req.user.ruid,
+        carYear: req.user.carYear,
+        carModel: req.user.carModel,
+        carColor: req.user.carColor
+			});
+		}
+	});
 
+/////////////////////////////////////////////
   app.put("/search:id", function(req, res) {
 
     console.log(req);
@@ -134,6 +139,7 @@ module.exports = function(app) {
     });
   });
 
+/////////////////////////////////////////////
   app.get("/confirmation", function(req, res) {
 
     console.log(req);
@@ -150,6 +156,7 @@ module.exports = function(app) {
 
   });
 
+/////////////////////////////////////////////
   app.put("/confirmation/:id", function(req, res) {
     console.log("BLAHBLAHBLAH");
     console.log(req);
@@ -166,6 +173,7 @@ module.exports = function(app) {
 
   });
 
+/////////////////////////////////////////////
   app.put("/signup/:id", function(req, res) {
 
     db.User.update({
@@ -182,6 +190,7 @@ module.exports = function(app) {
     });
   });
 
+/////////////////////////////////////////////
   app.get("/getPostInfo/:id", function(req, res){
     console.log("BEER");
     console.log(req);
@@ -197,8 +206,8 @@ module.exports = function(app) {
     });
   });
 
-  //update our car seats when we sign up a car each time
 
+/////////////////////////////////////////////
   app.put("/signup/", function(req, res) {
     console.log("YESTERDAYS PEOPLE");
     console.log(req)
@@ -214,6 +223,7 @@ module.exports = function(app) {
     });
   });
 
+/////////////////////////////////////////////
   app.put("/emissions/", function(req, res) {
     console.log("EMISSIONSSSSSSSSSSSSSS!");
     console.log(req);
@@ -228,24 +238,88 @@ module.exports = function(app) {
     });
   });
 
+/////////////////////////////////////////////
   app.get("/confirmation_2", function(req, res){
     console.log("phoneeee");
-    console.log(req);
+    //console.log(req);
 
-    client.messages.create({
-      to: '+1' + req.user.phone,
-      from: '+12013544393',
-      body: 'Thank you ' + req.user.first + ' ' + req.user.last + ' for using Scarlet Rides! You have a confirmed rider for the ride created on ' + req.user.createdAt
-
-    }, function(err, data){
-      if(err){
-        console.log(err);
+    db.User.findOne({
+      where: {
+        id: req.user.rId
       }
-      console.log(data);
 
+    }).then(function(data){
+
+      console.log("TIM");
+      console.log(data);
+      client.messages.create({
+        to: '+1' + data.phone,
+        from: '+12013544393',
+        body: 'Thank you ' + data.first + ' ' + data.last + ' for using Scarlet Rides! You have a confirmed rider for the ride created on ' + data.createdAt
+
+      }, function(err, data){
+        if(err){
+          console.log(err);
+        }
+        console.log(data);
+
+
+      }).then(function(data){
+        res.render("confirmation", data);
+
+        });
+        //
+        // res.render("confirmation", data);
+      });
+    });
+  // });
+
+  app.put("/confirmation_3", function(req, res){
+    db.User.update({
+
+      rId: "0"
+    }, {
+      where: {
+        rId: req.user.rId
+      }
+    }).then(function(data) {
+
+      res.render("confirmation", data);
+    });
+  });
+/////////////////////////////////////////////
+  app.get("/myAccount", function(req, res){
+
+    db.User.findAll({
+      first: req.user.first,
+      last: req.user.last,
+      age: req.user.age,
+      gender: req.user.gender,
+      email: req.user.email,
+      ruid: req.user.ruid,
+      phone: req.user.phone
+    }, {
+      where: {
+        id: req.user.id
+      }
 
     }).then(function(data){
       res.render("confirmation", data);
+    });
+  });
+
+////////////////////////////////////////////
+  app.put("/updateRider/", function(req, res) {
+
+    console.log(req);
+    db.User.update({
+      rId: req.body.rId
+    }, {
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json("Success");
     });
   });
 

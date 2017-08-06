@@ -3,15 +3,23 @@
 // var client = require('twilio')(accountSid, authToken);
 
 confirm = $("form.confirm_1");
+var phone = $(this).attr("data-phone");
 
 confirm.on("submit", function(event){
   event.preventDefault();
-  var phone = $(this).attr("data-phone");
 
-  $.get("/confirmation_2", function(phone){
+
+  $.get("/confirmation_2", function(data){
     //sends SMS
-    window.location.href = ("/members");
+    setTimeout (25);
+    $.ajax({
+      method: "PUT",
+      url: "/confirmation_3",
+      data: data
+    }).done(function(data){
+        setTimeout (25);
+        window.location.href = ("/members");
+    });
   });
-
 
 });

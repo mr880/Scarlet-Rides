@@ -24,17 +24,40 @@ $(document).ready(function() {
       confirm = true;
     }
 
+    var rider = {
+      rId: id
+    };
+
+    updateRider(rider);
+
     var makeTrue = {
       carSeats: seats,
       confirm: confirm,
       id: id
     };
 
+
+
     updateSeats(makeTrue);
+
+
 
     window.location.href = "/getPostInfo/" + makeTrue.id;
 
   });
+
+  function updateRider(data){
+    $.ajax({
+      method: "PUT",
+      url: "/updateRider/",
+      data: data
+    }).done(function(data){
+        setTimeout (25);
+    });
+  }
+
+
+
 
   function updateSeats(toggle) {
     $.ajax({
@@ -43,7 +66,7 @@ $(document).ready(function() {
       data: toggle
     }).done(function(data){
       // console.log(data)
-      //
+      setTimeout (25);
       //  window.location.href = "/search";
     });
   }
