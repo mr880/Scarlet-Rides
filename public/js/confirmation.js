@@ -11,13 +11,14 @@ confirm.on("submit", function(event){
 
   $.get("/confirmation_2", function(data){
     //sends SMS
+
     setTimeout (25);
     $.ajax({
       method: "PUT",
       url: "/confirmation_3",
       data: data
     }).done(function(data){
-        setTimeout (25);
+        
         window.location.href = ("/members");
     });
   });

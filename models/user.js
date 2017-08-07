@@ -78,6 +78,10 @@ module.exports = function(sequelize, DataTypes) {
     rId: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    rPhone: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
 
   });

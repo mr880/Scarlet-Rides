@@ -9,5 +9,6 @@ $(document).ready(function() {
     $(".member-carColor").text(data.carColor);
     $(".member-carModel").text(data.carModel);
     $(".member-carYear").text(data.carYear);
+    $(".member-posts").text(data.posts);
   });
 });

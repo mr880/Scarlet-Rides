@@ -21,7 +21,7 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     db.User.create({
       first: req.body.first,
       last: req.body.last,
@@ -39,6 +39,24 @@ module.exports = function(app) {
     });
   });
 
+  // app.put("/incrimentPost", function(req, res) {
+  //   console.log("BIG MONEY!!");
+  //   console.log("BIG MONEY!!");
+  //   console.log("BIG MONEY!!");
+  //   console.log("BIG MONEY!!");
+  //   console.log("BIG MONEY!!");
+  //
+  //   db.User.update({
+  //     posts: req.user.posts + 1
+  //   }, {
+  //     where: {
+  //       id: req.user.id
+  //     }
+  //     }).then(function(data) {
+  //     res.json("Success");
+  //   });
+  // });
+
   app.post("/api/post", function(req, res) {
 
     db.Post.create({
@@ -53,6 +71,7 @@ module.exports = function(app) {
       carSeats: req.user.carSeats,
       phone: req.user.phone,
       emissions: req.body.emissions,
+
       fromLivi: req.body.fromLivi,
       fromBusch: req.body.fromBusch,
       fromCook: req.body.fromCook,
@@ -60,7 +79,24 @@ module.exports = function(app) {
       toLivi: req.body.toLivi,
       toBusch: req.body.toBusch,
       toCook: req.body.toCook,
-      toCollege: req.body.toCollege
+      toCollege: req.body.toCollege,
+
+      cook2livi: req.body.cook2livi,
+      cook2busch: req.body.cook2busch,
+      cook2college: req.body.cook2college,
+
+      busch2livi: req.body.busch2livi,
+      busch2cook: req.body.busch2cook,
+      busch2college: req.body.busch2college,
+
+      college2cook: req.body.college2cook,
+      college2livi: req.body.college2livi,
+      college2busch: req.body.college2busch,
+
+      livi2cook: req.body.livi2cook,
+      livi2college: req.body.livi2college,
+      livi2busch: req.body.livi2busch
+
     }).then(function() {
       res.redirect("/api/user-data");
     }).catch(function(err) {
@@ -125,7 +161,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.put("/search:id", function(req, res) {
 
-    console.log(req);
+    //console.log(req);
     db.Post.update({
       carSeats: req.body.carSeats,
       confirm : req.body.confirm
@@ -142,7 +178,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.get("/confirmation", function(req, res) {
 
-    console.log(req);
+    //console.log(req);
     db.Post.findAll({
       confirm: req.body.confirm
     }, {
@@ -159,7 +195,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.put("/confirmation/:id", function(req, res) {
     console.log("BLAHBLAHBLAH");
-    console.log(req);
+    //console.log(req);
     db.Post.update({
       confirm: req.body.confirm
     }, {
@@ -193,7 +229,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.get("/getPostInfo/:id", function(req, res){
     console.log("BEER");
-    console.log(req);
+    //console.log(req);
 
     db.Post.findOne({
       where: {
@@ -210,7 +246,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.put("/signup/", function(req, res) {
     console.log("YESTERDAYS PEOPLE");
-    console.log(req)
+    //console.log(req)
     db.Post.update({
 
       carSeats: req.body.carSeats
@@ -226,7 +262,7 @@ module.exports = function(app) {
 /////////////////////////////////////////////
   app.put("/emissions/", function(req, res) {
     console.log("EMISSIONSSSSSSSSSSSSSS!");
-    console.log(req);
+    //console.log(req);
     db.User.update({
       emissions: req.body.emission
     }, {
@@ -237,20 +273,20 @@ module.exports = function(app) {
       res.json("Success");
     });
   });
+/////////////////////////////////////////////
 
 /////////////////////////////////////////////
   app.get("/confirmation_2", function(req, res){
     console.log("phoneeee");
-    //console.log(req);
+    console.log(req.user.rId);
 
     db.User.findOne({
       where: {
         id: req.user.rId
       }
 
-    }).then(function(data){
+    }).done(function(data){
 
-      console.log("TIM");
       console.log(data);
       client.messages.create({
         to: '+1' + data.phone,
@@ -261,19 +297,20 @@ module.exports = function(app) {
         if(err){
           console.log(err);
         }
+        console.log("SMS DATA:\n");
         console.log(data);
 
 
-      }).then(function(data){
+      }).done(function(data){
         res.render("confirmation", data);
 
         });
-        //
-        // res.render("confirmation", data);
+
       });
     });
   // });
 
+/////////////////////////////////////////////
   app.put("/confirmation_3", function(req, res){
     db.User.update({
 
@@ -287,7 +324,10 @@ module.exports = function(app) {
       res.render("confirmation", data);
     });
   });
+
+
 /////////////////////////////////////////////
+
   app.get("/myAccount", function(req, res){
 
     db.User.findAll({
@@ -310,8 +350,8 @@ module.exports = function(app) {
 
 ////////////////////////////////////////////
   app.put("/updateRider/", function(req, res) {
-
-    console.log(req);
+    console.log("I GUESS?!");
+    console.log(req.body);
     db.User.update({
       rId: req.body.rId
     }, {
@@ -322,5 +362,36 @@ module.exports = function(app) {
       res.json("Success");
     });
   });
+
+////////////////////////////////////////////
+  app.get("/riderPhone", function(req,res){
+    console.log("find user with rId of " + req.user);
+    //console.log(req.user.rId);
+    db.User.findOne({
+
+      where: {
+        id: req.user.rId
+      }
+
+    }).then(function(data){
+      res.render("search", data);
+    });
+  });
+
+////////////////////////////////////////////
+  // app.put("/riderPhone2", function(req, res){
+  //   console.log("OH MAH GAHD\n");
+  //   console.log(req);
+  //   db.User.update({
+  //     rPhone: req.body.phone
+  //
+  //   }, {
+  //     where: {
+  //       rId: req.body
+  //     }
+  //   })
+  // })
+
+
 
 };

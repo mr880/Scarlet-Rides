@@ -7,9 +7,20 @@ $(document).ready(function() {
   var seatsInput = $("input#seats-input");
 
 
+
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
+
+
+    //incriment posts
+    $.ajax({
+      method: "PUT",
+      url: "/incrimentPost"
+    }).done(function(data){
+
+    });
+
     var userData = {
       carYear: yearInput.val().trim(),
       carModel: typeInput.val().trim(),

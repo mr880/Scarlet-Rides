@@ -19,96 +19,139 @@
 
     </div>
   </nav>
-  <br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
+
+  <div class="form-group col-sm-6" id="campus-options-1">
+    <div class="form-group col-sm-4" >
+      <label for="startCampus"><b>Where are you?</b></label>
+      <select class="form-control" id="fromCampus">
+        <option value="All">All Campuses</option>
+        <option value="Livingston">Livingston</option>
+        <option value="Busch">Busch</option>
+        <option value="College Ave">College Ave</option>
+        <option value="Cook/Douglass">Cook/Douglass</option>
+      </select>
+    </div>
+    <!-- <div class="form-group col-sm-2" >
+      <form class="form-group" id="from-choice">
+        <input input type="hidden" type="text" name="post_id" value={{this.id}}>
+        <button type="submit" data-trigger="save" class="btn btn-default fontHere" id="fixbuttons-1">Update</button>
+      </form>
+    </div>
+  </div>
+  <div class="form-group col-sm-6" id="campus-options-2"> -->
+    <div class="form-group col-sm-4">
+      <label for="endCampus"><b>Where are you headed?</b></label>
+      <select class="form-control" id="toCampus">
+        <option value="All">All Campuses</option>
+        <option value="Livingston">Livingston</option>
+        <option value="Busch">Busch</option>
+        <option value="College Ave">College Ave</option>
+        <option value="Cook/Douglass">Cook/Douglass</option>
+      </select>
+    </div>
+    <div class="form-group col-sm-2">
+      <form class="form-group" id="from-to-choice">
+        <input input type="hidden" type="text" name="post_id" value={{this.id}}>
+        <button type="submit" data-trigger="save" class="btn btn-default fontHere" id="fixbuttons-1">Update</button>
+      </form>
+    </div>
+  </div>
+
   <h2 class="fontHere" id="ridesAvailable"><img id="ruLogo" src="http://content.sportslogos.net/logos/33/817/full/6853_rutgers_scarlet_knights-alternate-2001.png" alt="leaf" style="width:35px;">ides Available</h2>
   <div class="container">
+    <br>
+    <div class="form-group" id="seats-choice">
+      <label for="startCampus"><b>Pick number of seats</b></label>
+      <select class="form-control" id="seatInput">
+        <option value="1">1 (One)</option>
+        <option value="2">2 (Two)</option>
+        <option value="3">3 (Three)</option>
+        <option value="4">4 (Four)</option>
+      </select>
+    </div>
+    <br><br>
+
     {{#each posts}}
       {{#unless this.confirm}}
-    <div class="row" id="add_margin">
+        <div class="row" id="add_margin">
+          <div class="col-sm-12">
+            <div class="col-sm-4" id="donkey">
 
+              {{#if this.fromLivi}}
 
+                <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.fromBusch}}
+                <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.fromCook}}
+                <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.fromCollege}}
+                <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+            </div>
 
+            <div class="col-sm-4" id="color-white">
 
-            <div class="col-sm-12">
+              <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
+              <p class="fontHere"><b>From: </b> {{this.from}} Campus <b>To: </b> {{this.to}} Campus</p>
+              <p class="fontHere"><b>Posted on: </b>{{this.createdAt}}</p>
+              <p class="fontHere"><b>Notes:</b> {{this.notes}}</p>
+              <p class="fontHere"><b>Meet at: </b> {{this.time}}</p>
+              <!-- <p class="fontHere"><b>ID: </b> {{this.id}}</p> -->
+              <p class="fontHere"><b>Seats Available: </b> {{this.carSeats}}</p>
+              <p class="fontHere"><b>CO2 emmisions saved per rider: </b> {{this.emissions}}kg <img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:15px;"></p>
 
-              <div class="col-sm-4" id="donkey">
-
-                {{#if this.fromLivi}}
-
-                  <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.fromBusch}}
-                  <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.fromCook}}
-                  <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.fromCollege}}
-                  <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-              </div>
-
-              <div class="col-sm-4" id="color-white">
-
-                <p class="fontHere"><b>Driver: </b> {{this.first}} {{this.last}}</p>
-                <p class="fontHere"><b>From: </b> {{this.from}} Campus <b>To: </b> {{this.to}} Campus</p>
-                <p class="fontHere"><b>Posted on: </b>{{this.createdAt}}</p>
-                <p class="fontHere"><b>Notes:</b> {{this.notes}}</p>
-                <p class="fontHere"><b>Meet at: </b> {{this.time}}</p>
-                <!-- <p class="fontHere"><b>ID: </b> {{this.id}}</p> -->
-                <p class="fontHere"><b>Seats Available: </b> {{this.carSeats}}</p>
-                <p class="fontHere"><b>CO2 emmisions saved per rider: </b> {{this.emissions}}kg <img src="http://www.fao.org/uploads/pics/leaf.png" alt="leaf" style="width:15px;"></p>
-
-                <div class="form-group">
-                  <label for="startCampus"><b>Pick number of seats</b></label>
-                  <select class="form-control" id="seatInput">
-      					    <option value="1">1 (One)</option>
-      					    <option value="2">2 (Two)</option>
-      					    <option value="3">3 (Three)</option>
-                    <option value="4">4 (Four)</option>
-        					</select>
-                </div>
-
-                <form data-id={{this.id}} data-seats={{this.carSeats}} data-from={{this.from}} data-to{{this.to}} class="pickRide">
-                  <input input type="hidden" type="text" id="chosen_{{this.id}}" name="post_id" value={{this.id}}>
-                  <button type="submit" data-trigger="save" class="btn btn-default fontHere" id="fixbuttons">Choose</button>
-                </form>
-              </div>
-
-
-              <!-- <div class="col-sm-2" id="muel">
-
-              <img src="/assets/images/car.svg" alt="car" id="moveTo" style="width:80px;">
+              <!-- <div class="form-group">
+                <label for="startCampus"><b>Pick number of seats</b></label>
+                <select class="form-control" id="seatInput">
+    					    <option value="1">1 (One)</option>
+    					    <option value="2">2 (Two)</option>
+    					    <option value="3">3 (Three)</option>
+                  <option value="4">4 (Four)</option>
+      					</select>
               </div> -->
-              <div class="col-sm-4" id="ass">
-                {{#if this.toLivi}}
-                  <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.toBusch}}
-                  <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.toCook}}
-                  <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
-                {{#if this.toCollege}}
-                  <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
-                  <p></p>
-                {{/if}}
+              <br><br><br>
+              <form data-UserId={{this.UserId}} data-id={{this.id}} data-seats={{this.carSeats}} data-from={{this.from}} data-phone={{this.phone}} data-to{{this.to}} class="pickRide">
+                <input input type="hidden" type="text" id="chosen_{{this.id}}" name="post_id" value={{this.id}}>
+                <button type="submit" data-trigger="save" class="btn btn-default fontHere" id="fixbuttons">Choose</button>
+              </form>
+            </div>
+            <!-- <div class="col-sm-2" id="muel">
 
-              </div>
+            <img src="/assets/images/car.svg" alt="car" id="moveTo" style="width:80px;">
+            </div> -->
+            <div class="col-sm-4" id="ass">
+              {{#if this.toLivi}}
+                <img src="/assets/images/livingston.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.toBusch}}
+                <img src="/assets/images/busch.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.toCook}}
+                <img src="/assets/images/cook.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
+              {{#if this.toCollege}}
+                <img src="/assets/images/collegeAve.jpg" alt="livi" style="height:265px;">
+                <p></p>
+              {{/if}}
 
-      </div>
+            </div>
 
-    </div>
-    {{/unless}}
-  {{/each}}
+          </div>
+
+        </div>
+      {{/unless}}
+    {{/each}}
   </div>
 
 
