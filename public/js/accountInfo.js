@@ -10,5 +10,7 @@ $(document).ready(function() {
     $(".member-carModel").text(data.carModel);
     $(".member-carYear").text(data.carYear);
     $(".member-posts").text(data.posts);
+    $(".member-emissions").text(data.emissions);
+
   });
 });

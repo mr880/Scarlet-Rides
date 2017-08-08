@@ -72,7 +72,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     emissions: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     rId: {

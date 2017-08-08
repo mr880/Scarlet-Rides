@@ -2,25 +2,24 @@
 // var authToken = 'e1d1eb3bab340be569abc8864a1c9731';
 // var client = require('twilio')(accountSid, authToken);
 
-confirm = $("form.confirm_1");
-var phone = $(this).attr("data-phone");
+  confirm = $("form.confirm_1");
+  // var phone = $(this).attr("data-phone");
 
-confirm.on("submit", function(event){
-  event.preventDefault();
+  confirm.on("submit", function(event){
+    event.preventDefault();
+
+    $.get("/confirmation_2", function(data){
+      //sends SMS
 
 
-  $.get("/confirmation_2", function(data){
-    //sends SMS
+      $.ajax({
+        method: "PUT",
+        url: "/confirmation_3",
+        data: data
+      }).done(function(data){
 
-    setTimeout (25);
-    $.ajax({
-      method: "PUT",
-      url: "/confirmation_3",
-      data: data
-    }).done(function(data){
-        
-        window.location.href = ("/members");
+          window.location.href = ("/members");
+      });
     });
-  });
 
-});
+  });

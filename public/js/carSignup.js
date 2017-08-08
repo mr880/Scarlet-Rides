@@ -5,21 +5,56 @@ $(document).ready(function() {
   var typeInput = $("input#type-input");
   var colorInput = $("select#color");
   var seatsInput = $("input#seats-input");
+  var emissions;
+  var userEmissions;
+  var debugEmissions;
 
-
-
+  // $.get("/getUserEmissions", function(data){
+  //   console.log(data);
+  //   userEmissions = data.emissions;
+  // });
+  //
+  // $.get("/getEmissions", function(data){
+  //   //sends SMS
+  //   debugger
+  //   console.log(data);
+  //   debugEmissions = data[0].emissions;
+  //
+  //   //userEmissions += parseInt(data.emissions);
+  //   //emissions = userEmissions.toString();
+  //
+  //   // emissionsReport = {
+  //   //   emissions: emissions
+  //   // };
+  //
+  //
+  //
+  //   // pushEmiss(emissionsReport);
+  //
+  //
+  // });
+  //
+  // function pushEmiss(data){
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/pushEmissions",
+  //     data: data
+  //   }).done(function(data){
+  //
+  //   });
+  // }
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
 
 
-    //incriment posts
-    $.ajax({
-      method: "PUT",
-      url: "/incrimentPost"
-    }).done(function(data){
-
-    });
+    // //incriment posts
+    // $.ajax({
+    //   method: "PUT",
+    //   url: "/incrimentPost"
+    // }).done(function(data){
+    //
+    // });
 
     var userData = {
       carYear: yearInput.val().trim(),
@@ -31,7 +66,7 @@ $(document).ready(function() {
     if (!userData.carYear || !userData.carModel || !userData.carColor || !userData.carSeats) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
+
     updateInfo(userData);
     yearInput.val("");
     typeInput.val("");

@@ -1,3 +1,45 @@
+// $.get("/getUserEmissions", function(data){
+//   console.log(data);
+//
+//   if(data.emissions == null || data.emission == "NaN"){
+//     userEmissions = 0;
+//   }
+//   else{
+//     userEmissions = parseInt(data.emissions);
+//   }
+//
+// });
+//
+// $.get("/getEmissions", function(data){
+//   //sends SMS
+//   console.log(data);
+//   postEmissions = parseInt(data.emissions);
+//
+//   totalEmissions = userEmissions + postEmissions;
+//   //userEmissions += parseInt(data.emissions);
+//   //emissions = userEmissions.toString();
+//   var emissions = totalEmission.toString();
+//
+//   emissionsReport = {
+//     emissions: emissions
+//   };
+//
+//   console.log(data);
+//
+//   pushEmiss(emissionsReport);
+//
+//
+// });
+//
+// function pushEmiss(data){
+//   $.ajax({
+//     method: "PUT",
+//     url: "/pushEmissions",
+//     data: data
+//   }).done(function(data){
+//
+//   });
+// }
 $(document).ready(function() {
   // Getting references to our form and input
   var pickRide = $("form.pickRide");
@@ -7,32 +49,78 @@ $(document).ready(function() {
   var cancelId = $("input#cancelbtn");
   var seatChosen = $("select#seatInput");
 
+  var userEmissions;
+  var postEmissions;
+  var totalEmissions;
 
-  var from_to_choice = $("form#from-to-choice");
-  var fromChoice = $("select#fromCampus");
-  var toChoice = $("select#toCampus");
 
-  var all2all;
-  var all2livi;
-  var all2busch;
-  var all2cook;
-  var all2college;
-  var cook2all;
-  var cook2livi;
-  var cook2busch;
-  var cook2college;
-  var busch2all;
-  var busch2livi;
-  var busch2cook;
-  var busch2college;
-  var college2all;
-  var college2cook;
-  var college2livi;
-  var college2busch;
-  var livi2all;
-  var livi2cook;
-  var livi2college;
-  var livi2busch;
+  // $.get("/getUserEmissions", function(data){
+  //   console.log(data);
+  //
+  //   if(data.emissions == null || data.emission == "NaN"){
+  //     userEmissions = 0;
+  //   }
+  //   else{
+  //     userEmissions = parseInt(data.emissions);
+  //   }
+  //
+  // });
+  //
+  // $.get("/getEmissions", function(data){
+  //   //sends SMS
+  //   console.log(data);
+  //   postEmissions = parseInt(data.emissions);
+  //
+  //   totalEmissions = userEmissions + postEmissions;
+  //   //userEmissions += parseInt(data.emissions);
+  //   //emissions = userEmissions.toString();
+  //   var emissions = totalEmission.toString();
+  //
+  //   emissionsReport = {
+  //     emissions: emissions
+  //   };
+  //
+  //   console.log(data);
+  //
+  //   pushEmiss(emissionsReport);
+  //
+  //
+  // });
+  //
+  // function pushEmiss(data){
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/pushEmissions",
+  //     data: data
+  //   }).done(function(data){
+  //
+  //   });
+  // }
+  // var from_to_choice = $("form#from-to-choice");
+  // var fromChoice = $("select#fromCampus");
+  // var toChoice = $("select#toCampus");
+
+  // var all2all;
+  // var all2livi;
+  // var all2busch;
+  // var all2cook;
+  // var all2college;
+  // var cook2all;
+  // var cook2livi;
+  // var cook2busch;
+  // var cook2college;
+  // var busch2all;
+  // var busch2livi;
+  // var busch2cook;
+  // var busch2college;
+  // var college2all;
+  // var college2cook;
+  // var college2livi;
+  // var college2busch;
+  // var livi2all;
+  // var livi2cook;
+  // var livi2college;
+  // var livi2busch;
 
   // var emission = 0;
   $.get("/api/user_data").then(function(data) {
@@ -97,8 +185,6 @@ $(document).ready(function() {
       url: "/updateRider/",
       data: data
     }).done(function(data){
-
-
 
     });
   }
@@ -168,8 +254,6 @@ $(document).ready(function() {
   //
   //   }
   // }
-
-
 
   function updateSeats(toggle) {
     $.ajax({

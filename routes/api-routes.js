@@ -79,23 +79,7 @@ module.exports = function(app) {
       toLivi: req.body.toLivi,
       toBusch: req.body.toBusch,
       toCook: req.body.toCook,
-      toCollege: req.body.toCollege,
-
-      cook2livi: req.body.cook2livi,
-      cook2busch: req.body.cook2busch,
-      cook2college: req.body.cook2college,
-
-      busch2livi: req.body.busch2livi,
-      busch2cook: req.body.busch2cook,
-      busch2college: req.body.busch2college,
-
-      college2cook: req.body.college2cook,
-      college2livi: req.body.college2livi,
-      college2busch: req.body.college2busch,
-
-      livi2cook: req.body.livi2cook,
-      livi2college: req.body.livi2college,
-      livi2busch: req.body.livi2busch
+      toCollege: req.body.toCollege
 
     }).then(function() {
       res.redirect("/api/user-data");
@@ -274,7 +258,48 @@ module.exports = function(app) {
     });
   });
 /////////////////////////////////////////////
+  app.get("/getUserEmissions", function(req, res){
+    console.log("CHICKENS!\n")
+    console.log(req.user);
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).done(function(data){
+      console.log(data);
+      res.json(data);
+    });
+  });
+/////////////////////////////////////////////
+  app.get("/getEmissions",function(req, res){
+    console.log("GETTING EMISSIONS HERE");
+    console.log(req.user.id);
 
+
+    db.Post.findOne({
+      where: {
+        UserId: req.user.id,
+        confirm: false
+      }
+    }).done(function(data){
+      console.log(data);
+      res.json(data);
+    });
+  });
+/////////////////////////////////////////////
+  app.put("/pushEmissions", function(req, res){
+    console.log("UPDATE EMISSINS HERE\n");
+    console.log(req.body.emissions);
+    db.User.update({
+      emissions: req.body.emissions
+    }, {
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data){
+      res.json("Success");
+    });
+  });
 /////////////////////////////////////////////
   app.get("/confirmation_2", function(req, res){
     console.log("phoneeee");

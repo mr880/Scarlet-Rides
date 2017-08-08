@@ -28,26 +28,26 @@ $(document).ready(function() {
     var from = fromInput.val();
     var to = toInput.val();
     var emission = "0";
-    var cook2livi = false;
-    var cook2busch = false;
-    var cook2college = false;
-    var busch2livi = false;
-    var busch2cook = false;
-    var busch2college = false;
-    var college2cook = false;
-    var college2livi = false;
-    var college2busch = false;
-    var livi2cook = false;
-    var livi2college = false;
-    var livi2busch = false;
-    var fromLivi = false;
-    var fromCook = false;
-    var fromCollege = false;
-    var fromBusch = false;
-    var toLivi = false;
-    var toCook = false;
-    var toCollege = false;
-    var toBusch = false;
+    // var cook2livi = false;
+    // var cook2busch = false;
+    // var cook2college = false;
+    // var busch2livi = false;
+    // var busch2cook = false;
+    // var busch2college = false;
+    // var college2cook = false;
+    // var college2livi = false;
+    // var college2busch = false;
+    // var livi2cook = false;
+    // var livi2college = false;
+    // var livi2busch = false;
+    // var fromLivi = false;
+    // var fromCook = false;
+    // var fromCollege = false;
+    // var fromBusch = false;
+    // var toLivi = false;
+    // var toCook = false;
+    // var toCollege = false;
+    // var toBusch = false;
 
 
     if(from == "Livingston"){
@@ -62,21 +62,21 @@ $(document).ready(function() {
         fromBusch = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = true;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = true;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "College Ave"){
         var emission = "0.9";
@@ -88,22 +88,22 @@ $(document).ready(function() {
         toCollege = true;
         toBusch = false;
         toCook = false;
-        ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = true;
-        livi2busch = false;
+        // ////////////////
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = true;
+        // livi2busch = false;
       }
       else if(to == "Busch"){
         var emission = "0.83";
@@ -116,21 +116,21 @@ $(document).ready(function() {
         toCollege = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = true;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = true;
       }
     }
     else if(from == "Busch"){
@@ -145,21 +145,21 @@ $(document).ready(function() {
         toCook = false;
         toCollege = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = true;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = true;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "College Ave"){
         var emission = "0.65";
@@ -172,21 +172,21 @@ $(document).ready(function() {
         toBusch = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = true;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = true;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "Cook/Douglass"){
         var emission = "1.19";
@@ -199,21 +199,21 @@ $(document).ready(function() {
         toCollege = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = true;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = true;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
     }
     else if(from == "College Ave"){
@@ -228,21 +228,21 @@ $(document).ready(function() {
         toCollege = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = true;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = true;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "Livingston"){
         var emission = "0.9";
@@ -255,21 +255,21 @@ $(document).ready(function() {
         toCollege =false;
         toCook = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = true;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = true;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "Cook/Douglass"){
         var emission = "0.72";
@@ -282,21 +282,21 @@ $(document).ready(function() {
         toBusch = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = true;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = true;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
     }
     else if(from == "Cook/Douglass"){
@@ -311,21 +311,21 @@ $(document).ready(function() {
         toCollege = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = true;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = true;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to == "Livingston"){
         var emission = "0.9";
@@ -338,21 +338,21 @@ $(document).ready(function() {
         toCollege = false;
         toCook = false;
         ////////////////
-        cook2livi = true;
-        cook2busch = false;
-        cook2college = false;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = true;
+        // cook2busch = false;
+        // cook2college = false;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
       else if(to =="College Ave"){
         var emission = "0.72";
@@ -365,21 +365,21 @@ $(document).ready(function() {
         toBusch = false;
         toLivi = false;
         ////////////////
-        cook2livi = false;
-        cook2busch = false;
-        cook2college = true;
-
-        busch2livi = false;
-        busch2cook = false;
-        busch2college = false;
-
-        college2cook = false;
-        college2livi = false;
-        college2busch = false;
-
-        livi2cook = false;
-        livi2college = false;
-        livi2busch = false;
+        // cook2livi = false;
+        // cook2busch = false;
+        // cook2college = true;
+        //
+        // busch2livi = false;
+        // busch2cook = false;
+        // busch2college = false;
+        //
+        // college2cook = false;
+        // college2livi = false;
+        // college2busch = false;
+        //
+        // livi2cook = false;
+        // livi2college = false;
+        // livi2busch = false;
       }
     }
 
@@ -398,19 +398,19 @@ $(document).ready(function() {
       toBusch: toBusch,
       toCook: toCook,
       toCollege: toCollege,
-      chosen: true,
-      cook2livi : cook2livi,
-      cook2busch : cook2busch,
-      cook2college : cook2college,
-      busch2livi : busch2livi,
-      busch2cook : busch2cook,
-      busch2college : busch2college,
-      college2cook : college2cook,
-      college2livi : college2livi,
-      college2busch : college2busch,
-      livi2cook : livi2cook,
-      livi2college : livi2college,
-      livi2busch : livi2busch
+      chosen: true
+      // cook2livi : cook2livi,
+      // cook2busch : cook2busch,
+      // cook2college : cook2college,
+      // busch2livi : busch2livi,
+      // busch2cook : busch2cook,
+      // busch2college : busch2college,
+      // college2cook : college2cook,
+      // college2livi : college2livi,
+      // college2busch : college2busch,
+      // livi2cook : livi2cook,
+      // livi2college : livi2college,
+      // livi2busch : livi2busch
 
     };
 
@@ -426,10 +426,7 @@ $(document).ready(function() {
       rideData.emissions, rideData.fromLivi, rideData.fromBusch,
       rideData.fromCook, rideData.fromCollege, rideData.toLivi,
       rideData.toBusch, rideData.toCook, rideData.toCollege,
-      rideData.chosen, rideData.cook2livi, rideData.cook2busch,
-      rideData.cook2college, rideData.busch2livi, rideData.busch2cook,
-      rideData.busch2college, rideData.college2cook, rideData.college2livi, rideData.college2busch,
-      rideData.livi2cook, rideData.livi2college, rideData.livi2busch);
+      rideData.chosen);
     fromInput.val("");
     toInput.val("");
     notesInput.val("");
@@ -440,8 +437,7 @@ $(document).ready(function() {
 
   function postInfo(from, to, notes, time, emissions, fromLivi, fromBusch,
     fromCook, fromCollege, toLivi, toBusch, toCook, toCollege, chosen,
-    cook2college, cook2livi, cook2busch, busch2livi, busch2cook, busch2college,
-    college2cook, college2livi, college2busch, livi2cook, livi2college, livi2busch) {
+    ) {
     $.post("/api/post", {
       from: from,
       to: to,
@@ -456,22 +452,23 @@ $(document).ready(function() {
       toBusch: toBusch,
       toCook: toCook,
       toCollege: toCollege,
-      chosen: chosen,
-      cook2livi : cook2livi,
-      cook2busch : cook2busch,
-      cook2college : cook2college,
-
-      busch2livi : busch2livi,
-      busch2cook : busch2cook,
-      busch2college : busch2college,
-
-      college2cook : college2cook,
-      college2livi : college2livi,
-      college2busch : college2busch,
-
-      livi2cook : livi2cook,
-      livi2college : livi2college,
-      livi2busch : livi2busch
+      chosen: chosen
+      //
+      // cook2livi : cook2livi,
+      // cook2busch : cook2busch,
+      // cook2college : cook2college,
+      //
+      // busch2livi : busch2livi,
+      // busch2cook : busch2cook,
+      // busch2college : busch2college,
+      //
+      // college2cook : college2cook,
+      // college2livi : college2livi,
+      // college2busch : college2busch,
+      //
+      // livi2cook : livi2cook,
+      // livi2college : livi2college,
+      // livi2busch : livi2busch
 
 
 

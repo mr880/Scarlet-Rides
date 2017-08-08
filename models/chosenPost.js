@@ -1,13 +1,13 @@
 
 // Creating our Post model
 module.exports = function(sequelize, DataTypes) {
+
   var ChosenPost = sequelize.define("ChosenPost", {
     chosenSeats: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
   });
-
 
   ChosenPost.associate = function(models){
     ChosenPost.belongsTo(models.Post, {
